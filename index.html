@@ -195,19 +195,19 @@
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" /></svg>
                 <h3>¿Por Qué Capacitamos? </h3>
                 <p>Porque una empresa informada es una empresa protegida.
-Capacitamos para prevenir ataques, reducir errores humanos y crear una cultura de seguridad digital desde adentro.</p>
+Capacitamos para prevenir ataques, reducir errores humanos y crear una cultura de seguridad digital desde adentro.</p>
             </div>
             <div class="feature-box">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
                 <h3>Misión en Capacitación</h3>
                 <p>Formamos equipos para que tomen decisiones seguras.
-Llevamos el conocimiento en ciberseguridad a empresas que necesitan protegerse sin complicaciones ni tecnicismos.</p>
+Llevamos el conocimiento en ciberseguridad a empresas que necesitan protegerse sin complicaciones ni tecnicismos.</p>
             </div>
             <div class="feature-box">
                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
-                <h3>Formación Clara, Seguridad Real</h3>
+                <h3>Formación Clara, Seguridad Real</h3>
                 <p>Hablamos en tu idioma.
-Nuestras actividades son prácticos, accesibles y diseñados para generar resultados reales frente a amenazas como el ransomware.</p>
+Nuestras actividades son prácticos, accesibles y diseñados para generar resultados reales frente a amenazas como el ransomware.</p>
             </div>
         </div>
         
@@ -291,68 +291,76 @@ Nuestras actividades son prácticos, accesibles y diseñados para generar result
     </script>
 
    <!-- INICIO Login de clerk hecho por Glenn como prueba -->
+    <!-- Container donde montaremos el SignIn o el UserButton -->
+    <div id="app"></div>
+
+    <!-- ÚNICA carga de ClerkJS, versión fijada (@5) -->
     <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_cmljaC13YWhvby0yNC5jbGVyay5hY2NvdW50cy5kZXYk"
+      src="https://rich-wahoo-24.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+      type="text/javascript">
+    </script>
 
-        
-  async
-  crossorigin="anonymous"
-  data-clerk-publishable-key="pk_test_cmljaC13YWhvby0yNC5jbGVyay5hY2NvdW50cy5kZXYk"
-  src="https://rich-wahoo-24.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
-  type="text/javascript">
-</script>
+    <!-- Bloque de inicialización + DEBUG restaurado/mejorado -->
+    <script>
+      window.addEventListener('load', async function () {
+        // --- DEBUG: contexto útil en consola ---
+        try {
+          console.group('[Clerk] Boot');
+          console.time('[Clerk] load()');
+          console.log('Location:', window.location.href);
+          const pk = document.querySelector('script[data-clerk-publishable-key]')?.getAttribute('data-clerk-publishable-key') || '(missing)';
+          console.log('Publishable Key (masked):', pk.replace(/(.{6}).+(.{4})/, '$1…$2'));
+          console.log('Frontend API (derived from script src):', (document.currentScript && document.currentScript.src) ? new URL(document.currentScript.src).origin : '(see script tag)');
+        } catch(e) {
+          console.warn('[Clerk] Debug preamble failed:', e);
+        }
 
+        try {
+          if (!window.Clerk) {
+            console.error('[Clerk] window.Clerk no está disponible. ¿Falló la carga del script?');
+            const app = document.getElementById('app');
+            if (app) app.innerHTML = '<p style="color:#b00020;">No se pudo cargar ClerkJS. Revisa la consola de errores y verifica el dominio/HTTPS.</p>';
+            return;
+          }
 
+          await Clerk.load();
+          console.timeEnd('[Clerk] load()');
+          console.log('[Clerk] Cargado. isSignedIn =', Clerk.isSignedIn);
 
-<script>
-  window.addEventListener('load', async function () {
-    await Clerk.load()
+          const app = document.getElementById('app');
+          if (!app) {
+            console.error('[Clerk] No se encontró el contenedor #app.');
+            return;
+          }
 
-    console.log('ClerkJS is loaded')
-  })
-</script>
-
-
-
-<div id="app"></div>
-
-<!-- Initialize Clerk with your
-Clerk Publishable Key and Frontend API URL -->
-<script
-  async
-  crossorigin="anonymous"
-  data-clerk-publishable-key="pk_test_cmljaC13YWhvby0yNC5jbGVyay5hY2NvdW50cy5kZXYk"
-  src="https://rich-wahoo-24.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
-  type="text/javascript"
-></script>
-
-<script>
-  window.addEventListener('load', async function () {
-    await Clerk.load()
-
-    if (Clerk.isSignedIn) {
-      document.getElementById('app').innerHTML = `
-        <div id="user-button"></div>
-      `
-
-      const userButtonDiv = document.getElementById('user-button')
-
-      Clerk.mountUserButton(userButtonDiv)
-    } else {
-      document.getElementById('app').innerHTML = `
-        <div id="sign-in"></div>
-      `
-
-      const signInDiv = document.getElementById('sign-in')
-
-      Clerk.mountSignIn(signInDiv)
-    }
-  })
-</script>
-
-
+          if (Clerk.isSignedIn) {
+            console.log('[Clerk] Usuario autenticado. Montando UserButton…');
+            app.innerHTML = '<div id="user-button"></div>';
+            Clerk.mountUserButton(document.getElementById('user-button'));
+          } else {
+            console.log('[Clerk] Usuario no autenticado. Montando SignIn…');
+            app.innerHTML = '<div id="sign-in"></div>';
+            Clerk.mountSignIn(document.getElementById('sign-in'));
+          }
+        } catch (err) {
+          console.error('[Clerk] Error durante la inicialización:', err);
+          const app = document.getElementById('app');
+          if (app) {
+            app.innerHTML = `
+              <p style="color:#b00020;max-width:600px;">
+                No se pudo inicializar la autenticación. Asegúrate de estar sirviendo el sitio por <strong>http://localhost</strong> o <strong>https://</strong>
+                (no <code>file://</code>) y valida las URLs permitidas en Clerk.
+              </p>`;
+          }
+        } finally {
+          console.groupEnd?.();
+        }
+      });
+    </script>
    <!-- FIN de clerk hecho por Glenn como prueba -->
-
-
 
 </body>
 </html>
