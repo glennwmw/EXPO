@@ -1,0 +1,130 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: darkgray;
+}
+h1{
+    position: sticky;
+    width: 98%;
+    margin-top:0;
+    z-index: 100;
+    background-color: black;
+    text-align: center;
+    padding: 15px;
+    color: white;
+}
+.tarjeta{
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    margin: 30px auto;
+    margin-bottom: 44px;
+}
+.tarjeta-contenedor{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.tarjeta:hover .tarjeta-contenedor {
+    transform: rotateY(180deg);
+}
+
+.tarjeta-frente,
+.tarjeta-atras,.tarjeta-fredos,.tarjeta-fretres,.tarjeta-frecuatro{
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+border: 1px solid black;
+border-radius: 10px;
+ 
+}
+.tarjeta-fredos{
+    background-color: gray;
+        bottom: 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    clear: both;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tarjeta-frecuatro{
+        background-color: gray;
+        bottom: 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    clear: both;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tarjeta-fretres{
+    background-color: gray;
+        bottom: 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    clear: both;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tarjeta-frente{
+  background-color: gray;
+    bottom: 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    clear: both;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tarjeta-atras{
+    background: white;
+    color: black;
+    transform: rotateY(180deg);
+    text-align: center;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+h2{
+    font-size: 20px;
+}
+p{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#pieprincipal{
+    position: sticky;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background-color: #000;
+    clear: both;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor{
+    display:flex;
+    margin: 5px auto;
+    margin-bottom: 60px;
+}

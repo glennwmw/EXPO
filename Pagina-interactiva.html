@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Pagina-interactiva.css">
+    <title>ADWARE</title>
+</head>
+<body>
+    <main>
+    <nav class="navbar">
+        <a href="#home" class="logo">ADWARE</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#about">Información</a></li>
+            <li><a href="#testimonials">Actividades</a></li>
+            <li><a href="#" class="button23">Contáctanos</a></li>
+        </ul>
+        </nav>  
+
+
+
+     <div class="incase" id="incase" >
+    <div class="Instrucciones">
+        <h2>Instrucciones</h2>
+        <p class="lorem">En esta actividad se pondrán a prueba tus conocimientos previos, mediante la identificación de correos comunmente enviados. Entre estos habrán dos posibles intentos de recolección de tu información vulnerable, reconócelos y gana puntos por cada respuesta correcta; también por cada correo malicioso que no selecciones, ganarás un punto.</p>
+    </div>
+     </div>
+<div class="empezar" id="empezar">
+        <button onclick="ocultar()" class="boton-empezar">Iniciar</button>
+</div>
+
+</div>
+
+    <div class="main" id="main">
+        <div class="linea">
+        <div class="correo" id="correo0" >
+            <h2>Correo 1</h2>
+            <p>Un nuevo acceso en el dispositivo windows. 
+                Detectamos un nuevo acceso a tu Cuenta de Google en el dispositivo Windows. Si fuiste tú, no tienes que hacer nada. De lo contrario, te ayudaremos a proteger tu cuenta.</p>
+             <button onclick="verde0()">Seleccionar</button>
+        </div>
+        <div class="correo" id="correo2" >
+            <h2>Correo 2</h2>
+            <p>Estimado usuario:
+
+                Estamos actualizando varios de nuestros Términos y Condiciones del Mercado, incluidos los Términos Generales de Venta, Políticas de devoluciones,etc. No necesita tomar ninguna acción. Los Términos actualizados entrarán en vigor a partir del 31 de julio de 2025 y se aplicarán a todos los pedidos realizados a partir de esa fecha.
+                Si tiene alguna pregunta o inquietud sobre estos cambios, contáctese con nuestro equipo de Servicio al Cliente en el siguiente link:</p>
+             <button onclick="verde2()">Seleccionar</button>
+        </div>
+        <div class="correo" id="correo3" >
+            <h2>Correo 3</h2>
+            <p>Estimado usuario:
+                Bnshop servicio de puntos te recuerda que tu cuenta actual de puntos (3022 puntos) expirará en tres días hábiles. Para evitar inconvenientes, canjea tus puntos a tiempo.
+                Entra en la
+                web para canjear tus regalos:
+                https://bnshop.bncr-fl.cc/cr</p>
+             <button onclick="rojo()">Seleccionar</button>
+        </div>
+    </div>
+    <div class="linea">
+        <div class="correo" id="correo4">
+            <h2>Correo 4</h2>
+            <p>Tu código de acceso único para Disney+
+                Es necesario que verifiques la dirección de correo electrónico asociada a tu cuenta de MyDisney con este código de acceso que vencerá en 15 minutos.</p>
+             <button  onclick="verde3()">Seleccionar</button>
+        </div>
+        <div class="correo" id="correo5" >
+            <h2>Correo 5</h2>
+            <p>🎊¡Felicidades! 🎊 
+                Haz sido seleccionado para un regalo gratuito y ₡5000 de Cashback. 💸💰🎉
+                Inserta tu tarjeta y contraseña para recibir la recompensa automáticamente!😊🎊</p>
+             <button onclick="rojo2()">Seleccionar</button>
+        </div>
+        <div class="correo" id="correo6" >
+            <h2>Correo 6</h2>
+            <p>A Estelle Richter le encanta tu comentario!❤️
+                Si no quieres recibir más emails sobre tus comentarios y respuestas de Youtube, puedes cancelar tu suscripción.</p>
+             <button onclick="verde4()">Seleccionar</button>
+        </div>
+    </div>
+
+    </div>
+    <div class="terminar" id="terminar">
+        <button onclick="terminar()" class="boton-terminar" class="cta-link" href="#">Terminar</button>
+</div>
+
+
+    <div class="item">
+        <div class="terminaritem" id="terminar-item">
+        <div class="puntaje" id="puntaje">
+    </div>
+    <div class="resultados">
+            <div class="main2" id="main2">
+            <div class="linea">
+            <div class="correo2" id="correo0" >
+                <h2>Explicacion de Correo 1</h2>
+                <p>Este correo es bueno, ya que le avisa al usuario de un posible intruso a su cuenta de Google y gracias a esto puede tomar precauciones ante algún ataque.</p>
+            </div>
+            <div class="correo2" id="correo2" >
+                <h2>Explicacion de Correo 2</h2>
+                <p>Este es una notificación de actualización de Términos y Condiciones de la empresa, vela por el conocimiento y aprobación del usuario sobre estos cambios.
+                 No representa ningún tipo de amenaza para la información personal del usuario, y si no acepta estos cambios puede contactarse con el equipo o anular su suscripción.</p>
+            </div>
+            <div class="correo2" id="correo3" >
+                <h2>Explicacion de Correo 3</h2>
+                <p>Este correo es un claro ejemplo de Fraude de Suplantación, finge ser una empresa que tiene un programa de recompensas por puntos al ingresar al link, lo cual . </p>
+            </div>
+        </div>
+        <div class="linea2">
+            <div class="correo2" id="correo4" >
+                <h2>Explicacion de Correo 4</h2>
+                <p>Este correo es bueno ya que está enviando un código único para que nadie más que el usuario pueda acceder a su cuenta de Disney+.</p>
+            </div>
+            <div class="correo2" id="correo5" >
+                <h2>Explicacion de Correo 5</h2>
+                <p>En este, pretende ser una empresa que le dará una recompensa si figura su número de cuenta bancaria y contraseña, los cual es un claro ejemplo de estafa.</p>
+            </div>
+            <div class="correo2" id="correo6" >
+                <h2>Explicacion de Correo 6</h2>
+                <p>Este se trata de un tipo de correo de Spam de una aplicación verificada, simplemente le informa al usuario una interacción que hubo en la respectiva red social.
+            Sin embargo no utiliza ningún tipo de información vulnerable ni solicita datos que no se obtengan ya por defecto desde esta app/sitio web.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</main>
+
+<footer id="pieprincipal">
+    Derechos reservados &copy;
+</footer>
+    
+
+</body>
+<script src="JS/interactiva.js"></script>
+</html>
