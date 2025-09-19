@@ -289,5 +289,70 @@ Nuestras actividades son prácticos, accesibles y diseñados para generar result
 
         // --- Lógica del Carrusel (el código JS completo del carrusel y del menú hamburguesa iría aquí) ---
     </script>
+
+   <!-- INICIO Login de clerk hecho por Glenn como prueba -->
+    <script
+
+        
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_cmljaC13YWhvby0yNC5jbGVyay5hY2NvdW50cy5kZXYk"
+  src="https://rich-wahoo-24.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+  type="text/javascript">
+</script>
+
+
+
+<script>
+  window.addEventListener('load', async function () {
+    await Clerk.load()
+
+    console.log('ClerkJS is loaded')
+  })
+</script>
+
+
+
+<div id="app"></div>
+
+<!-- Initialize Clerk with your
+Clerk Publishable Key and Frontend API URL -->
+<script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_cmljaC13YWhvby0yNC5jbGVyay5hY2NvdW50cy5kZXYk"
+  src="https://rich-wahoo-24.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+  type="text/javascript"
+></script>
+
+<script>
+  window.addEventListener('load', async function () {
+    await Clerk.load()
+
+    if (Clerk.isSignedIn) {
+      document.getElementById('app').innerHTML = `
+        <div id="user-button"></div>
+      `
+
+      const userButtonDiv = document.getElementById('user-button')
+
+      Clerk.mountUserButton(userButtonDiv)
+    } else {
+      document.getElementById('app').innerHTML = `
+        <div id="sign-in"></div>
+      `
+
+      const signInDiv = document.getElementById('sign-in')
+
+      Clerk.mountSignIn(signInDiv)
+    }
+  })
+</script>
+
+
+   <!-- FIN de clerk hecho por Glenn como prueba -->
+
+
+
 </body>
 </html>
